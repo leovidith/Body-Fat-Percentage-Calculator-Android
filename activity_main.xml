@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#121212"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Body Fat Percentage Calculator"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="24dp" />
+
+    <!-- Age Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ageInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Age"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#6200EE" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Weight Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Weight (kg)"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#6200EE" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Height Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/heightInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Height (cm)"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#6200EE" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Neck Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/neckInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Neck Circumference (cm)"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#6200EE" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Waist Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/waistInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Waist Circumference (cm)"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#6200EE" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Hip Input (Only visible for females) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hipInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:paddingBottom="16dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/hipInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Hip Circumference (cm) (For females)"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#6200EE" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Gender Selection -->
+    <RadioGroup
+        android:id="@+id/genderGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="24dp">
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textColor="#FFFFFF"
+            android:paddingEnd="16dp" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textColor="#FFFFFF"
+            android:paddingStart="16dp" />
+    </RadioGroup>
+
+    <!-- Calculate Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate Body Fat"
+        android:textColor="@android:color/white"
+        app:cornerRadius="12dp"
+        android:backgroundTint="#6200EE"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:textSize="16sp" />
+
+    <!-- Horizontal Progress Bar (Initially hidden) -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/progress_bar_style"
+        android:max="100"
+        android:indeterminate="false"
+        android:progress="0"
+        android:layout_gravity="center"/>
+
+    <!-- Result TextView -->
+    <TextView
+        android:id="@+id/resultView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="16dp" />
+
+</LinearLayout>
